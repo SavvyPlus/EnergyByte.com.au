@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   deploy:
-    runs-on: debian-4.19.118
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Deploy Ghost Theme

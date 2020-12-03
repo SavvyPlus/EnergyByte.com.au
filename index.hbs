@@ -10,11 +10,9 @@
         <div class="hero__descr m-b{{#unless @site.cover_image}} text-center{{/unless}}">{{@site.description}}</div>
 
         {{!-- Subscribe --}}
-        
-          {{#if @labs.members}}
+        {{#if @labs.members}}
           {{#if @member.paid}}
-            {{!-- Paid member - no CTA 
-            
+            {{!-- Paid member - no CTA --}}
           {{else if @member}}
             <a class="btn btn--shadow btn--secondary" href="/membership/"
               title="{{t "Upgrade"}}" aria-label="{{t "Upgrade"}}">
@@ -36,22 +34,7 @@
               </a>
             </form>
           {{/if}}
-        {{/if}} 
-        --}}
-          
-          
-          <!--[if lte IE 8]>
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-<![endif]-->
-<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-<script>
-  hbspt.forms.create({
-	portalId: "4524741",
-	formId: "1d21f152-cd2c-446e-a366-537725a839e8"
-});
-</script>
-          
-          
+        {{/if}}
       </div>
 
       {{!-- Site cover image --}}

@@ -47,7 +47,7 @@
           {{>icon name="menu" size="sm"}}
         </button>
 
-        {{!-- Sign up Button --}}
+        {{!-- Sign up Button
         {{#if @labs.members}}
           {{#if @member.paid}}
           {{else if @member}}
@@ -56,7 +56,7 @@
             <a class="signin-link" href="/signin/">{{t "Sign In"}}</a>
             <a class="signup-link header-cta" href="/signup/">{{t "Sign Up"}} {{> icon name="arrow-right" size="xs" class="m-l-sm"}}</a>
           {{/if}}
-        {{/if}}
+        {{/if}} --}}
 
         {{!-- User Menu on Mobile --}}
         <div class="header__user-wrap{{#if @member}} member {{else}} non-member {{/if}}m-l-sm">

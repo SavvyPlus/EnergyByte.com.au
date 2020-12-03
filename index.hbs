@@ -6,35 +6,8 @@
     <div class="hero__inner flex">
       <div class="hero__content flex flex-1 flex-col {{#unless @site.cover_image}} flex-cc{{/unless}}">
         {{!-- Title and description --}}
-        <h1 class="hero__title">EnergyByte.</h1>
+        <h1 class="hero__title">EnergyByte</h1>
         <div class="hero__descr m-b{{#unless @site.cover_image}} text-center{{/unless}}">{{@site.description}}</div>
-
-        {{!-- Subscribe --}}
-        {{#if @labs.members}}
-          {{#if @member.paid}}
-            {{!-- Paid member - no CTA --}}
-          {{else if @member}}
-            <a class="btn btn--shadow btn--secondary" href="/membership/"
-              title="{{t "Upgrade"}}" aria-label="{{t "Upgrade"}}">
-              {{t "Upgrade"}}
-            </a>
-          {{else}}
-            <form data-members-form="subscribe">
-              <input data-members-email aria-labelledby="post-subscribe" 
-                type="email" placeholder="{{t "Your email address"}}" required/>
-              <button class="btn btn--secondary" type="submit" 
-                title="{{t "Subscribe"}}" aria-label="{{t "Subscribe"}}">
-                {{t "Subscribe"}}
-              </button>
-              <a tabindex="0" class="notify notify-success js-notify-close">
-                <div class="container wrapper flex flex-cc">
-                  <div class="notify__msg flex-1">{{t "Great! Check your inbox and click the link to confirm your subscription"}}</div> 
-                  <div class="notify__close">{{>icon name="x" size="xs"}}</div>
-                </div>
-              </a>
-            </form>
-          {{/if}}
-        {{/if}}
       </div>
 
       {{!-- Site cover image --}}

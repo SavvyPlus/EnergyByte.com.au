@@ -18,7 +18,7 @@
   --color-primary-dark: #E53D66;
 
   --color-secondary: #8C8D94;
-  --color-secondary-light: #8C8D94;
+  --color-secondary-light: hsl(0, 0%, 60%);
   --color-secondary-dark: #8C8D94;
 
   /* neutral colors */

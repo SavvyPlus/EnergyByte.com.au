@@ -162,12 +162,12 @@
     .header-cta {
       border: none;
       background-color: #725CFF;
-      color: var(--color-dark);
+      color: var(--color-light);
       margin-left: var(--gap);
 
       @mixin attention {
         background-color: var(--color-secondary);
-        color: var(--color-primary-dark);
+        color: var(--color-primary-light);
         cursor: pointer;
 
         i { transform: rotate(-45deg); }

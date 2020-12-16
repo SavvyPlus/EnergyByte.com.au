@@ -166,8 +166,9 @@
       margin-left: var(--gap);
 
       @mixin attention {
-        background-color: var(--color-light);
-        color: var(--color-primary-light);
+        
+        color: var(--color-primary);
+        border-color: var(--color-primary);
         cursor: pointer;
 
         i { transform: rotate(-45deg); }

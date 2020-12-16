@@ -166,7 +166,7 @@
       margin-left: var(--gap);
 
       @mixin attention {
-        background-color: var(--color-secondary);
+        background-color: var(--color-light);
         color: var(--color-primary-light);
         cursor: pointer;
 

@@ -168,6 +168,7 @@
       @mixin attention {
         
         color: var(--color-primary);
+        background-color: transparent;
         border-color: var(--color-primary);
         cursor: pointer;
 

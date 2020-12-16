@@ -161,7 +161,7 @@
 
     .header-cta {
       border: none;
-      background-color: var(--color-secondary-light);
+      background-color: #725CFF;
       color: var(--color-dark);
       margin-left: var(--gap);
 

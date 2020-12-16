@@ -164,6 +164,8 @@
       background-color: #725CFF;
       color: var(--color-light);
       margin-left: var(--gap);
+      border-color: var(--color-primary);
+      border: 1px solid var(--color-text-acc-2);
 
       @mixin attention {
         

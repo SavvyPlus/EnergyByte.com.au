@@ -169,6 +169,7 @@
         
         color: var(--color-primary);
         border-color: var(--color-primary);
+        background-color: #ffffff;
         cursor: pointer;
 
         i { transform: rotate(-45deg); }

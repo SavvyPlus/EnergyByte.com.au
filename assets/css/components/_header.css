@@ -232,7 +232,7 @@
 
   &__user {
     position: relative;
-    background-color: var(--color-bg-acc-3);
+    background-color: var(--color-primary);
     border-radius: var(--global-radius-round);
     padding: 2px;
 

@@ -124,6 +124,83 @@
               </div>
             </div>
           </div>
+            
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 m-b-lg">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Annual Report"}}</h3>
+                <div class="checkout-plan__price">
+                <sup>{{@price.currency_symbol}}</sup><strong>1500</strong>/{{t "o"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Complete access to the Market Report"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "20% discount on the monthly plan"}}</li>
+                </ul>
+
+                 
+                  <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+  style="background-color:#E53D66;color:#FFF;padding:9px 8px;border:0;border-radius:2px;font-weight:bold;font-size:0.92em"
+  id="checkout-button-price_1ICChsAYwH4hcWrEk9msudqR"
+  role="link"
+  type="button"
+>
+  ONCE OFF
+</button>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HuRVqAYwH4hcWrEU7RoiKDGLpBXz0g6sQQLOw1XRnRgUH1lMax0ebaHrvLricUXmwsJYRIswsiaAFnVGTDcyB1V00XKcRMnFJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1ICChsAYwH4hcWrEk9msudqR');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1ICChsAYwH4hcWrEk9msudqR', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//energybyte.com.au/success',
+      cancelUrl: window.location.protocol + '//energybyte.com.au/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+ 
+                  
+              </div>
+            </div>
+          </div>
+            
+            
         </div>
       </div>
 

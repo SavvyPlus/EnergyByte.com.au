@@ -1,34 +1,142 @@
-{{!< default}}
-
-{{!-- Page header area --}}
-{{#post}}
-  {{#if feature_image}}
-    <div class="page-header">
-      <div class="page-header__img lazyload" data-src="{{img_url feature_image}}">
-      </div>
-    </div>
-  {{else}}
-    <h1 class="page__title">{{title}}</h1>
-  {{/if}}
-{{/post}}
-
-{{!-- The main content area on the Contact page --}}
-<div class="container">
-    <div class="contact-info">
-      <h3>Address</h3>
-      <p>City</p>
-      <p>Country</p>
-      <p>Post code</p>
-      <p><strong>Tel: </strong>1 234 567 890</p>
-    </div>
-    <div class="contact-form">
-        <h3>Contact us</h3>
-        <form action="//formspree.io/youremail@domain.com" id="contact-form" class="contact-form" method="post">
-          <input type="text" name="username" id="username" title="Name" placeholder="Name" required>
-          <input type="text" name="email" id="email" title="Email" class="email" placeholder="Email" required>
-          <textarea rows="10" cols="10" name="message" id="message" title="Message" placeholder="Message" required></textarea>
-          <input type="text" name="_gotcha" style="display:none">
-          <input class="btn" type="submit" name="submit" id="submit" value="Submit">
-        </form>
-    </div>
+<div class="page__hdr flex flex-cc m-b-lg">
+  <h1>{{t "Subscribe to our Market Report"}}</h1>
 </div>
+
+<div class="container wrapper">
+     <p class="m-b-lg">{{t "Currently, you have an active subscription to our Market Report. You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}</p>
+
+      {{!-- Logged in, not paying: Check out --}}
+      <div class="checkout__form">
+        <div class="checkout__title m-b fw-800">{{t "Choose your plan"}}</div>
+        
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Monthly"}}</h3>
+                <div class="checkout-plan__price">
+                  <sup>{{@price.currency_symbol}}</sup><strong>{{@price.monthly}}</strong>/{{t "m"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Complete access to the Market Report"}}</li>
+                </ul>
+                <a class="btn btn--brand btn--sm" 
+                  href="javascript:void(0)" data-members-plan="Monthly">
+                  {{t "Subscribe now"}}
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Yearly"}}</h3>
+                <div class="checkout-plan__price">
+                  <sup>{{@price.currency_symbol}}</sup><strong>{{@price.yearly}}</strong>/{{t "y"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Complete access to the Market Report"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "20% discount on the monthly plan"}}</li>
+                </ul>
+                <a class="btn btn--brand btn--sm" 
+                  href="javascript:void(0)" data-members-plan="Yearly">
+                  {{t "Subscribe now"}}
+                </a>
+              </div>
+            </div>
+          </div>
+            
+            <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Annual Report"}}</h3>
+                <div class="checkout-plan__price">
+                <sup>{{@price.currency_symbol}}</sup><strong>1500</strong>/{{t "o"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "3 months access to the Market Report"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Access to the 2020 Annual Market Report"}}</li>
+                </ul>
+
+                 
+                  <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+  style="background-color:#E53D66;color:#FFF;padding:9px 8px;border:0;border-radius:2px;font-weight:bold;font-size:0.92em"
+  id="checkout-button-price_1ICChsAYwH4hcWrEk9msudqR"
+  role="link"
+  type="button"
+>
+  ONCE OFF
+</button>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HuRVqAYwH4hcWrEU7RoiKDGLpBXz0g6sQQLOw1XRnRgUH1lMax0ebaHrvLricUXmwsJYRIswsiaAFnVGTDcyB1V00XKcRMnFJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1ICChsAYwH4hcWrEk9msudqR');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1ICChsAYwH4hcWrEk9msudqR', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//energybyte.com.au/success',
+      cancelUrl: window.location.protocol + '//energybyte.com.au/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+ 
+                  
+              </div>
+            </div>
+          </div>
+            
+    
+            
+        </div>
+      </div>
+   <br/><br/>
+      
+      <p class="m-b-lg">{{t "Are you an individual, student or not-for-profit organisation? We offer aggresive discounts if you qualify.  Contact Us now to get access."}}
+        </p>
+      
+      <br/><br/>

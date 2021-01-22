@@ -6,7 +6,7 @@
 
 <div class="container wrapper">
   <div class="acnt">
-    {{#if @member.paid}}
+ 
 
       {{!-- Logged in, paying member: Show acnt info --}}
       <div class="acnt-box">
@@ -57,7 +57,7 @@
       </div>
       {{/get}}
 
-    {{else if @member}}
+    
 
       {{!-- Logged in, not paying: Link to checkout --}}
       <div class="acnt-box">
@@ -216,6 +216,6 @@
       {{!-- Not logged in: Redirect to signin --}}
       <script>window.location = '{{@site.url}}/signin/';</script>
 
-    {{/if}}
+    
   </div>
 </div>

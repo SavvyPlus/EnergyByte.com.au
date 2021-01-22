@@ -1,0 +1,221 @@
+{{!< ../default}}
+
+<div class="page__hdr flex flex-cc m-b-lg">
+  <h1>{{t "Your account"}}</h1>
+</div>
+
+<div class="container wrapper">
+  <div class="acnt">
+    {{#if @member.paid}}
+
+      {{!-- Logged in, paying member: Show acnt info --}}
+      <div class="acnt-box">
+        <p class="m-b-lg">{{t "Currently, you have an active subscription to our Market Report. You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}</p>
+        {{#foreach @member.subscriptions}}
+          <div class="acnt-det flex flex-cc m-b-lg">
+            <div class="acnt-det__label">
+              <div class="acnt-det__name">{{t "Name"}}</div>
+              <div class="acnt-det__email">{{t "Email"}}</div>
+              <div class="acnt-det__plan">{{t "Your plan"}}</div>
+              <div class="acnt-det__status">{{t "Status"}}</div>
+              <div class="acnt-det__valid">{{t "Valid until"}}</div>
+            </div>
+            <div class="acnt-det__value">
+              <div class="acnt-det__name">{{@member.name}}</div>
+              <div class="acnt-det__email">{{@member.email}}</div>
+              <div class="acnt-det__plan">{{plan.currency_symbol}}{{price plan.amount}} {{plan.nickname}}</div>
+              <div class="acnt-det__status">{{status}}</div>
+              <div class="acnt-det__valid">{{date current_period_end format="MMMM DD, YYYY"}}</div> 
+            </div>
+          </div>
+
+          <div class="acnt__edit m-t-lg m-b-lg">
+            <a class="btn btn--brand btn--xs" href="javascript:"
+                data-members-edit-billing
+                data-members-success="/"
+                data-members-cancel="/"
+              >Edit billing info</a>
+
+            <span class="flex-1"></span>
+
+            {{cancel_link
+              class="btn btn--brand btn--xs btn--bordered"
+            }}
+          </div>
+        {{/foreach}}
+      </div>
+
+      {{#get "posts" limit="all" include="authors,tags" }}
+      <div class="section__title m-b">{{t "Members only content"}}</div>
+      
+      <div class="row">
+        {{#foreach posts visibility="paid"}}
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            {{> post-card class="m-b-lg"}}
+          </div>
+        {{/foreach}}
+      </div>
+      {{/get}}
+
+    {{else if @member}}
+
+      {{!-- Logged in, not paying: Link to checkout --}}
+      <div class="acnt-box">
+        <p class="m-b-lg">{{t "To unlock full access to the complete Market Report, subscribe below to a monthly or yearly paid plan."}}
+        </p>
+        <div class="acnt-det flex flex-cc m-b-lg">
+          <div class="acnt-det__label">
+            <div class="acnt-det__email">{{t "Email"}}</div>
+            <div class="acnt-det__plan">{{t "Your plan"}}</div>
+          </div>
+          <div class="acnt-det__value">
+            <div class="acnt-det__email">{{@member.email}}</div>
+            <div class="acnt-det__plan">{{t "Free"}}</div>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Logged in, not paying: Check out --}}
+      <div class="checkout__form">
+        <div class="checkout__title m-b fw-800">{{t "Choose your plan"}}</div>
+        
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Monthly"}}</h3>
+                <div class="checkout-plan__price">
+                  <sup>{{@price.currency_symbol}}</sup><strong>{{@price.monthly}}</strong>/{{t "m"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Complete access to the Market Report"}}</li>
+                </ul>
+                <a class="btn btn--brand btn--sm" 
+                  href="javascript:void(0)" data-members-plan="Monthly">
+                  {{t "Subscribe now"}}
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Yearly"}}</h3>
+                <div class="checkout-plan__price">
+                  <sup>{{@price.currency_symbol}}</sup><strong>{{@price.yearly}}</strong>/{{t "y"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Complete access to the Market Report"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "20% discount on the monthly plan"}}</li>
+                </ul>
+                <a class="btn btn--brand btn--sm" 
+                  href="javascript:void(0)" data-members-plan="Yearly">
+                  {{t "Subscribe now"}}
+                </a>
+              </div>
+            </div>
+          </div>
+            
+            <div class="col-xs-4">
+            <div class="checkout-plan">
+              <header class="checkout-plan__hdr p-b border-bottom-1">
+                <h3 class="checkout-plan__title">{{t "Annual Report"}}</h3>
+                <div class="checkout-plan__price">
+                <sup>{{@price.currency_symbol}}</sup><strong>1500</strong>/{{t "o"}}
+                </div>
+              </header>
+              <div class="checkout-plan__content">
+                <ul class="list--unstyled">
+                  <li>{{>icon name="check" size="xs"}}{{t "Full access to all weekly posts"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Regular newsletters"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "3 months access to the Market Report"}}</li>
+                  <li>{{>icon name="check" size="xs"}}{{t "Access to the 2020 Annual Market Report"}}</li>
+                </ul>
+
+                 
+                  <!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button
+  style="background-color:#E53D66;color:#FFF;padding:9px 8px;border:0;border-radius:2px;font-weight:bold;font-size:0.92em"
+  id="checkout-button-price_1ICChsAYwH4hcWrEk9msudqR"
+  role="link"
+  type="button"
+>
+  ONCE OFF
+</button>
+
+<div id="error-message"></div>
+
+<script>
+(function() {
+  var stripe = Stripe('pk_live_51HuRVqAYwH4hcWrEU7RoiKDGLpBXz0g6sQQLOw1XRnRgUH1lMax0ebaHrvLricUXmwsJYRIswsiaAFnVGTDcyB1V00XKcRMnFJ');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1ICChsAYwH4hcWrEk9msudqR');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1ICChsAYwH4hcWrEk9msudqR', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+      successUrl: window.location.protocol + '//energybyte.com.au/success',
+      cancelUrl: window.location.protocol + '//energybyte.com.au/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
+
+ 
+                  
+              </div>
+            </div>
+          </div>
+            
+    
+            
+        </div>
+      </div>
+   <br/><br/>
+      
+      <p class="m-b-lg">{{t "Are you an individual, student or not-for-profit organisation? We offer aggresive discounts if you qualify.  Contact Us now to get access."}}
+        </p>
+      
+      <br/><br/>
+
+    {{else}}
+
+      {{!-- Not logged in: Redirect to signin --}}
+      <script>window.location = '{{@site.url}}/signin/';</script>
+
+    {{/if}}
+  </div>
+</div>

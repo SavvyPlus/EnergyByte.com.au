@@ -68,11 +68,30 @@
       </button>
     </div>
 
-    {{!-- Posts --}}
+    {{!-- Posts
     <div class="grid post-container">
       {{#foreach posts visibility="all"}}
         {{> post-card img=true }}
       {{/foreach}}
+    </div> --}}
+      
+    {{!-- Posts --}}
+    <div class="grid post-container">
+{{#if @member.paid}}
+        {{#foreach posts visibility="all"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+    {{else}}
+        {{#if @member}}
+        {{#foreach posts visibility="public,members"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+    {{else}}
+        {{#foreach posts visibility="public"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+        {{/if}}
+{{/if}}
     </div>
 
     {{!-- Load more posts --}}

@@ -3,9 +3,11 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 <div class="container wrapper">
-
+  {{> post-hero}}
   <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+    {{#if access}}
 
+    {{/if}}
     <div class="content">
       {{#if custom_excerpt}}
         <p class="context-excerpt text-lg">

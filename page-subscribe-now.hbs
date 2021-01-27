@@ -1,0 +1,52 @@
+{{!< default}}
+
+{{!< default}}
+
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+{{> page-hero}}
+
+<div class="container wrapper">
+  <article class="{{post_class}} content-wrap post-access-{{visibility}}">
+    <div class="content">
+        {{content}}
+    </div>
+  </article>
+</div>
+{{/post}}
+
+
+
+<div class="container wrapper">
+  {{!-- Latest Posts --}}
+  <div class="section">
+
+
+    <div class="flex flex-cc m-b">
+      {{!-- Tag List
+      <div class="tag-list-wrap flex-1">
+      {{#get "tags" order="count.posts desc" limit="5"}}
+        <div class="tag-list">
+          {{#foreach tags}}
+            <a class="tag-item" href="{{url}}">{{name}}</a>
+          {{/foreach}}
+        </div>
+      {{/get}}
+      </div> --}}
+      {{/get}}
+
+    {{!-- Load more posts --}}
+    <div class="col-xs-12 center-xs m-t-lg">
+      <button class="btn btn--wide btn--shadow btn--brand js-load-more" onclick="loadMorePosts(this)">
+        {{t "Load more Market Reports"}}
+      </button>
+    </div>
+  </div>
+
+    
+    
+    
+    
+    
+    
+    

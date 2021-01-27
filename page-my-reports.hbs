@@ -36,23 +36,17 @@
     </div> --}}
       
     {{!-- Posts --}}
-    <div class="grid post-container">
-{{#if @member.paid}}
+          {{#get "posts" limit="all" include="authors,tags" }}
+      <div class="section__title m-b">{{t "Members only content"}}</div>
+      
+      <div class="row">
         {{#foreach posts visibility="paid"}}
-        {{> post-card img=true }}
+          <div class="col-xs-12 col-md-6 col-lg-4">
+            {{> post-card class="m-b-lg"}}
+          </div>
         {{/foreach}}
-    {{else}}
-        {{#if @member}}
-        {{#foreach posts visibility="public,members"}}
-        {{> post-card img=false }}
-        {{/foreach}}
-    {{else}}
-        {{#foreach posts visibility="public"}}
-        {{> post-card img=false }}
-        {{/foreach}}
-        {{/if}}
-{{/if}}
-    </div>
+      </div>
+      {{/get}}
 
     {{!-- Load more posts --}}
     <div class="col-xs-12 center-xs m-t-lg">
@@ -61,3 +55,11 @@
       </button>
     </div>
   </div>
+
+    
+    
+    
+    
+    
+    
+    

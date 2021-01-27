@@ -45,7 +45,7 @@
         {{/foreach}}
       </div>
 
-      {{#get "posts" limit="all" include="authors,tags" }}
+      {{!-- {{#get "posts" limit="all" include="authors,tags" }}
       <div class="section__title m-b">{{t "Members only content"}}</div>
       
       <div class="row">
@@ -55,13 +55,13 @@
           </div>
         {{/foreach}}
       </div>
-      {{/get}}
+      {{/get}} --}}
 
     {{else if @member}}
 
       {{!-- Logged in, not paying: Link to checkout --}}
       <div class="acnt-box">
-        <p class="m-b-lg">{{t "To unlock full access to the complete Market Report, subscribe below to a monthly or yearly paid plan."}}
+        <p class="m-b-lg">{{t "To unlock full access to the complete Market Report, subscribe below to paid plan."}}
         </p>
         <div class="acnt-det flex flex-cc m-b-lg">
           <div class="acnt-det__label">

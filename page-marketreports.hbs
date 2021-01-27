@@ -9,10 +9,7 @@
 <div class="container wrapper">
   <article class="{{post_class}} content-wrap post-access-{{visibility}}">
     <div class="content">
-      {{#if access}}
         {{content}}
-      {{else}}
-        {{> post-access-cta visibility=visibility}}
       {{/if}}
     </div>
   </article>
@@ -24,7 +21,7 @@
 <div class="container wrapper">
   {{!-- Latest Posts --}}
   <div class="section">
-      <h1>Market Reports</h1>
+
 
     <div class="flex flex-cc m-b">
       {{!-- Tag List
@@ -38,7 +35,7 @@
       {{/get}}
       </div> --}}
     
-      {{!-- Grid/List buttons --}}
+      {{!-- Grid/List buttons
       <button class="toggle__item btn--grid p-sm m-r-sm js-grid-btn" 
         aria-label="{{t "Grid"}}" title="{{t "Grid"}}" onclick="setView('grid')">
         {{> icon name="grid" size="sm"}}
@@ -47,7 +44,7 @@
         aria-label="{{t "List"}}" title="{{t "List"}}" onclick="setView('list')">
         {{> icon name="list" size="sm"}}
       </button>
-    </div>
+    </div> --}}
 
     {{!-- Posts
     <div class="grid post-container">

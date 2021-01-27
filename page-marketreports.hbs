@@ -3,10 +3,10 @@
 <div class="container wrapper">
   {{!-- Latest Posts --}}
   <div class="section">
-
+      <h1>Market Reports</h1>
 
     <div class="flex flex-cc m-b">
-      {{!-- Tag List --}}
+      {{!-- Tag List
       <div class="tag-list-wrap flex-1">
       {{#get "tags" order="count.posts desc" limit="5"}}
         <div class="tag-list">
@@ -15,7 +15,7 @@
           {{/foreach}}
         </div>
       {{/get}}
-      </div>
+      </div> --}}
     
       {{!-- Grid/List buttons --}}
       <button class="toggle__item btn--grid p-sm m-r-sm js-grid-btn" 
@@ -37,7 +37,7 @@
       
     {{!-- Posts --}}
           {{#get "posts" limit="all" include="authors,tags" }}
-      <div class="section__title m-b">{{t "Members only content"}}</div>
+      {{!--  <div class="section__title m-b">{{t "Members only content"}}</div> --}}
       
       <div class="row">
         {{#foreach posts visibility="paid"}}

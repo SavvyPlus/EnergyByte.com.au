@@ -78,6 +78,26 @@
     {{!-- Posts --}}
     <div class="grid post-container">
 {{#if @member.paid}}
+        {{#foreach posts visibility="public"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+    {{else}}
+        {{#if @member}}
+        {{#foreach posts visibility="public"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+    {{else}}
+        {{#foreach posts visibility="public"}}
+        {{> post-card img=true }}
+        {{/foreach}}
+        {{/if}}
+{{/if}}
+    </div>
+      
+      
+          {{!-- Posts 
+    <div class="grid post-container">
+{{#if @member.paid}}
         {{#foreach posts visibility="all"}}
         {{> post-card img=true }}
         {{/foreach}}
@@ -92,7 +112,8 @@
         {{/foreach}}
         {{/if}}
 {{/if}}
-    </div>
+    </div> --}}
+      
 
     {{!-- Load more posts --}}
     <div class="col-xs-12 center-xs m-t-lg">

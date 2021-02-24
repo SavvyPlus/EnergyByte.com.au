@@ -12,7 +12,7 @@ html, body {
 
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
-  hyphens: auto;
+  hyphens: none;
 }
 
 body {

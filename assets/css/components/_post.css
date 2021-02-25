@@ -5,7 +5,9 @@
   color: var(--color-text-acc-1);
 
   &-wrap {
-    max-width: calc(40 * var(--gap-rem));
+    /* This is the post width parameter */
+    /* max-width: calc(40 * var(--gap-rem));   */
+    max-width: 800px;
     margin: 0 auto;
     margin-bottom: var(--gap-lg);
   }

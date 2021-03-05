@@ -125,7 +125,15 @@
 
                                                               
     {{!-- TOC script tag--}}    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.2/tocbot.min.js"></script>                                                          
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.2/tocbot.min.js"></script> 
+    <script>
+    tocbot.init({
+        tocSelector: '.toc',
+        contentSelector: '.content',
+        hasInnerContainers: true
+    });
+</script>     
+                                                                                    
                                                               
   </body>
 </html>

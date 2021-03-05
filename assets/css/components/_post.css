@@ -26,7 +26,8 @@ body {
     font-size: 1.6rem;
     line-height: 1.6em;
     padding: 0 0.8em;
-    align-items: right;    
+    float: right;   
+    overflow: auto;  
 
 }
 
@@ -41,7 +42,8 @@ body {
     font-size: 1.6rem;
     line-height: 1.6em;
     padding: 0 0.8em;
-    align-items: right;    
+    float: right;   
+    overflow: auto;
 
 
 }

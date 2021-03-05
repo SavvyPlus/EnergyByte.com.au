@@ -3,14 +3,12 @@
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 <div class="container wrapper">
+                  <aside class="toc-container">
+        <div class="toc"></div>
+    </aside>
   {{> post-hero}}
   <article class="{{post_class}} content-wrap post-access-{{visibility}}">
     {{#if access}}
-      
-              <aside class="toc-container">
-        <div class="toc"></div>
-    </aside>
-      
       {{> social-share}}
     {{/if}}
       

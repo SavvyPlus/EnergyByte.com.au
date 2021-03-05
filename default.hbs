@@ -22,7 +22,11 @@
       <meta name="msapplication-TileColor" content="#da532c">
       <meta name="msapplication-config" content=""{{asset "/favicon/browserconfig.xml"}}">
       <meta name="theme-color" content="#ffffff">
-
+   
+    {{!-- TOC Configuration - must be before main CSS script line 47 --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.2/tocbot.css" />                                            
+                                                
+                                                
     {{!-- Theme Configuration --}}
     {{> theme-config}}
 
@@ -106,6 +110,7 @@
     {{!-- Notifications --}}
     {{> notifications}}
 
+                                                              
     {{!-- Service Worker for PWA --}}
     <script>
       if ('serviceWorker' in navigator) {
@@ -117,5 +122,10 @@
 
     {{!-- Ghost outputs important scripts and data with this tag --}}
     {{ghost_foot}}
+
+                                                              
+    {{!-- TOC script tag--}}    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.12.2/tocbot.min.js"></script>                                                          
+                                                              
   </body>
 </html>

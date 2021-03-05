@@ -340,7 +340,7 @@ body {
 
 }
 
-tocstyles {
+.toc {
     position: sticky;
     top: 70px;
     min-width: 260px;

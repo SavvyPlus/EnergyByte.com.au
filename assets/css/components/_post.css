@@ -18,14 +18,10 @@ body {
 
 
 
-@media (max-width: 700px) {
-.toc-container {}
-.toc {}  
-}
 
 
 
-
+@media screen and (min-width: 700px) {
 .toc-container {
     position: sticky;
     position: -webkit-sticky; /* Safari */
@@ -36,8 +32,6 @@ body {
     Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
     line-height: 1.6em;
     float: right;   
-
-
 }
 
 .toc {
@@ -52,9 +46,14 @@ body {
     line-height: 1.6em;
     float: right;   
     padding-left: 75px;
-
-
 }
+}
+
+
+
+
+
+
     
     
 

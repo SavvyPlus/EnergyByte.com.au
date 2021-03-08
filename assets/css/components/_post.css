@@ -15,6 +15,17 @@ body {
 .toc-container {
     order: 1;
 }
+
+
+
+@media (max-width: 700px) {
+.toc-container {}
+.toc {}  
+}
+
+
+
+
 .toc-container {
     position: sticky;
     position: -webkit-sticky; /* Safari */
@@ -44,6 +55,8 @@ body {
 
 
 }
+    
+    
 
 .is-active-link::before {
     background-color: #3eb0ef;
